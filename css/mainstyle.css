@@ -1,0 +1,275 @@
+/* ================= VARIABLES ================= */
+:root {
+  --bg-color: #212121;
+  --text-color: #ffffff;
+  --card-bg: #4c4c4c4c;
+  --header-bg: #1c1c1c;
+  --header-text: #fbfbfb;
+}
+
+body.light {
+  --bg-color: rgb(203, 203, 203);
+  --text-color: #212121;
+  --card-bg: #e1e1e14a;
+  --header-bg: rgb(197, 197, 197);
+  --header-text: #212121;
+}
+
+/* ================= BODY ================= */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Plus Jakarta Sans;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ================= HEADER ================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: var(--header-bg);
+  color: var(--header-text);
+  position: relative;
+  z-index: 10;
+}
+
+.header-left .logo {
+  font-weight:400;
+  font-size: 1.7rem;
+  text-decoration: none;
+  color: var(--header-text);
+}
+
+.header-right {
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 1px ;
+  color: var(--header-text);
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.toggle-btn:hover {
+  opacity: 0.8;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--header-text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: var(--header-text);
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger button */
+.menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--header-text);
+  cursor: pointer;
+}
+
+/* ================= MAIN ================= */
+main {
+  flex: 1;
+  width: 90%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  background: var(--bg-color);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+}
+
+/* ================= PORTRAIT ================= */
+.portrait img {
+  width: 400px;
+  height: auto;
+  float: left;
+  margin: 0 20px 10px 0;
+  border-radius: 6px;
+}
+
+.portrait-text {
+  flex: 1;
+}
+
+.header_name {
+  text-align: center;
+  font-size:50px;
+}
+.para{
+  font-size:20px;
+}
+
+/* ================= EDUCATION PAGE ================= */
+.education {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.edu {
+    display: flex;
+    padding: 15px 40px;
+    align-items: center;
+    justify-content: flex-start;
+    transition: 0.3s;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.edu img {
+    width: 120px;
+    height: auto;
+    margin-right: 50px;
+    transition: 0.3s;
+}
+
+.name {
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.details > span,
+.details > a {
+    padding-top: 3px;
+    display: flex;
+    font-size: 15px;
+    color: var(--text-color);
+}
+
+/* ================= SECTIONS ================= */
+section {
+  display: none;
+  padding: 1rem;
+  text-align: justify;
+}
+
+section.active {
+  display: block;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: var(--header-bg);
+  color: var(--header-text);
+  margin-top: 0;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 1000px) {
+    .edu {
+        display: block;
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    .edu img {
+        width: 60%;
+        margin: 0 auto 10px auto;
+        display: block;
+    }
+
+    .name {
+        font-size: 16px;
+        padding-bottom: 5px;
+    }
+
+    .details > span,
+    .details > a {
+        font-size: 14px;
+        display: block;
+        padding-top: 2px;
+    }
+}
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: inline;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: var(--header-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 50;
+    width: max-content;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .header-right {
+    flex-wrap: wrap;
+  }
+
+  /* Portrait stacked on mobile */
+  .portrait img {
+    float: none;
+    display: block;
+    margin: 0 auto 10px auto;
+    width: 60%;
+  }
+  .header_name {
+    text-align: center;
+    font-size:20px;
+  }
+  .para{
+    font-size:15px;
+    padding:15px;
+  }
+}
